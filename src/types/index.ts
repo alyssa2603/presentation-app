@@ -14,7 +14,7 @@ export interface Order {
   customer: string;
   amountPaid: number;
   total: number;
-  itemsBought: string[]; // Item IDs for simplicity
+  itemsBought: string[]; // Document references to items in 'items' collection
   isPrinted: boolean;
   createdAt: Date;
 }

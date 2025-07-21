@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useCart } from '../context/CartContext';
 import { useApp } from '../context/AppContext';
@@ -36,12 +36,29 @@ const Checkout: React.FC = () => {
     setIsProcessing(true);
 
     try {
-      // Create order in Firestore
+      // Create individual item documents for each purchased item
+      const itemRefs = [];
+      
+      for (const cartItem of cart) {
+        // Create a new item document for each purchased item (not the product catalog)
+        const itemRef = doc(collection(db, 'items')); // Auto-generate ID for each purchased item
+        
+        // Write the purchased item data to Firestore
+        await setDoc(itemRef, {
+          itemName: cartItem.itemName,
+          price: cartItem.price,
+          quantity: cartItem.cartQuantity // Use the quantity actually bought
+        });
+        
+        itemRefs.push(itemRef);
+      }
+      
+      // Now create the order with references to the items
       const orderData = {
         customer: customerName,
         amountPaid: paymentAmount,
         total: total,
-        itemsBought: cart.map(item => item.id),
+        itemsBought: itemRefs,
         isPrinted: false,
         createdAt: new Date()
       };
@@ -52,6 +69,7 @@ const Checkout: React.FC = () => {
       setCurrentOrder({
         ...orderData,
         id: docRef.id,
+        itemsBought: cart.map(item => item.id), // Keep as IDs for local state
         items: cart
       });
 

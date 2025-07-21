@@ -1,6 +1,7 @@
 import { Item } from '../types';
 
-// Easy to modify product catalog - just add/remove items from this array
+// Hardcoded product catalog - all products are defined here
+// These should match the items in your Firestore 'items' collection
 export const SAMPLE_PRODUCTS: Item[] = [
   {
     id: '1',
@@ -39,3 +40,8 @@ export const SAMPLE_PRODUCTS: Item[] = [
     quantity: 40
   }
 ];
+
+// Helper function to get product by ID
+export const getProductById = (id: string): Item | undefined => {
+  return SAMPLE_PRODUCTS.find(product => product.id === id);
+};
