@@ -42,12 +42,12 @@ const Cart: React.FC = () => {
               <ShoppingBag className="w-12 h-12 text-gray-400" />
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Your cart is empty</h2>
-            <p className="text-gray-600 mb-6">Magdagdag ng mga produkto para magsimula</p>
+            <p className="text-gray-600 mb-6">Add products to your cart</p>
             <button
               onClick={() => navigate('/products')}
               className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-200"
             >
-              Magpatuloy sa Pamimili
+              Continue Shopping
             </button>
           </div>
         </main>
@@ -64,9 +64,9 @@ const Cart: React.FC = () => {
             className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>Balik sa mga Produkto</span>
+            <span>Back to Products</span>
           </button>
-          <h1 className="text-xl font-semibold text-gray-900">Kart ng Pamimili</h1>
+          <h1 className="text-xl font-semibold text-gray-900">Your Cart</h1>
           <div></div>
         </div>
       </header>
@@ -74,8 +74,7 @@ const Cart: React.FC = () => {
       <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-xl shadow-sm">
           <div className="p-6 border-b">
-            <h2 className="text-2xl font-bold text-gray-900">Inyong mga Gamit</h2>
-            <p className="text-gray-600">Suriin at baguhin ang inyong order</p>
+            <h2 className="text-2xl font-bold text-gray-900">Your Items</h2>
           </div>
 
           <div className="divide-y">
@@ -135,7 +134,7 @@ const Cart: React.FC = () => {
               onClick={handleCheckout}
               className="w-full bg-primary text-white py-4 px-6 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-semibold text-lg"
             >
-              Magpatuloy sa Checkout
+              Checkout
             </button>
           </div>
         </div>

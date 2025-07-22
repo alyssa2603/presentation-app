@@ -173,7 +173,7 @@ const Checkout: React.FC = () => {
                 </div>
                 {paymentAmount > total && (
                   <p className="mt-2 text-sm text-green-600">
-                    Sukli: ₱{(paymentAmount - total).toFixed(2)}
+                    Change: ₱{(paymentAmount - total).toFixed(2)}
                   </p>
                 )}
                 {paymentError && (
@@ -183,7 +183,7 @@ const Checkout: React.FC = () => {
 
               <div className="bg-primary/5 rounded-lg p-4">
                 <p className="text-sm text-primary-dark">
-                  <strong>Minimum na bayad:</strong> ₱{total.toFixed(2)}
+                  <strong>Total Due:</strong> ₱{total.toFixed(2)}
                 </p>
               </div>
 
@@ -195,10 +195,10 @@ const Checkout: React.FC = () => {
                 {isProcessing ? (
                   <>
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    <span>Pinoproseso...</span>
+                    <span>Processing...</span>
                   </>
                 ) : (
-                  <span>Kumpletuhin ang Bayad</span>
+                  <span>Complete Payment</span>
                 )}
               </button>
             </form>

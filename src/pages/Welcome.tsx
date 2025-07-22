@@ -23,8 +23,8 @@ const Welcome: React.FC = () => {
           <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
             <ShoppingBag className="w-10 h-10 text-primary" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Maligayang Pagdating!</h1>
-          <p className="text-gray-600">Simulan natin ang inyong pamimili</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome to Warehouse ni Juan!</h1>
+          <p className="text-gray-600">Enter your name.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -47,7 +47,7 @@ const Welcome: React.FC = () => {
             type="submit"
             className="w-full bg-primary text-white py-3 px-4 rounded-lg hover:bg-primary-dark focus:ring-4 focus:ring-primary/20 transition-all duration-200 flex items-center justify-center space-x-2 font-medium"
           >
-            <span>Magsimulang Mamili</span>
+            <span>Proceed to shopping</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </form>

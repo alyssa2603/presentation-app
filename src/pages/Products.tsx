@@ -52,7 +52,7 @@ const Products: React.FC = () => {
               <User className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-gray-600">Maligayang pagbabalik,</p>
+              <p className="text-sm text-gray-600">Hello,</p>
               <p className="font-semibold text-gray-900">{customerName}</p>
             </div>
           </div>
@@ -75,8 +75,8 @@ const Products: React.FC = () => {
       {/* Products Grid */}
       <main className="max-w-6xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Aming mga Produkto</h1>
-          <p className="text-gray-600">Tuklasin ang aming mga piling produkto</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Products</h1>
+          <p className="text-gray-600">Explore our products in the warehouse</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -91,7 +91,6 @@ const Products: React.FC = () => {
               
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.productName}</h3>
-                <p className="text-sm text-gray-600 mb-4">Pwedeng bilhin</p>
                 
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-primary">
@@ -103,7 +102,7 @@ const Products: React.FC = () => {
                     className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors duration-200 flex items-center space-x-2"
                   >
                     <Plus className="w-4 h-4" />
-                    <span>Ilagay sa Kart</span>
+                    <span>Add to Cart</span>
                   </button>
                 </div>
               </div>

@@ -3,38 +3,82 @@ export interface Product {
   productName: string;
   price: number;
 }
-
-// Hardcoded product catalog - simple products with name and price
+// product catalog
 export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '1',
-    productName: 'Premium Coffee Beans',
-    price: 1249.50
+    productName: 'Royal Umbrella Jasmine Rice 25kg',
+    price: 1520.00
   },
   {
     id: '2',
-    productName: 'Artisan Chocolate Bar',
-    price: 625.00
+    productName: 'Lucky Me! Instant Pancit Canton Original (30s)',
+    price: 390.00
   },
   {
     id: '3',
-    productName: 'Organic Honey',
-    price: 900.00
+    productName: 'Wilkins Pure Water Bottles 500ml (24s)',
+    price: 210.00
   },
   {
     id: '4',
-    productName: 'Handcrafted Mug',
-    price: 1600.00
+    productName: 'B-Meg Integra Layer Fresh Eggs Tray (30s)',
+    price: 220.00
   },
   {
     id: '5',
-    productName: 'Gourmet Tea Set',
-    price: 2299.50
+    productName: 'Golden Fiesta Palm Oil 3L',
+    price: 495.00
   },
   {
     id: '6',
-    productName: 'Vanilla Extract',
-    price: 837.50
+    productName: 'Surf Detergent Powder Kalamansi 5kg',
+    price: 480.00
+  },
+  {
+    id: '7',
+    productName: 'Spam Luncheon Meat Classic 340g',
+    price: 175.00
+  },
+  {
+    id: '8',
+    productName: '555 Sardines in Tomato Sauce 155g (100 cans)',
+    price: 2300.00
+  },
+  {
+    id: '9',
+    productName: 'Sanicare Toilet Tissue 3-ply (12 rolls)',
+    price: 198.00
+  },
+  {
+    id: '10',
+    productName: 'Indoplas Disposable Face Mask (50 pcs)',
+    price: 105.00
+  },
+  {
+    id: '11',
+    productName: 'Datu Puti Soy Sauce 1 Gallon',
+    price: 152.00
+  },
+  {
+    id: '12',
+    productName: 'Coke Regular 1.5L (Case of 12)',
+    price: 678.00
+  },
+  {
+    id: '13',
+    productName: 'Mighty White Bread Loaf 400g (10 pcs)',
+    price: 350.00
+  },
+  {
+    id: '14',
+    productName: 'Bear Brand Fortified Powdered Milk Drink 1.2kg',
+    price: 450.00
+  },
+  {
+    id: '15',
+    productName: 'Domex Ultra Thick Bleach 5L',
+    price: 289.00
   }
 ];
 
