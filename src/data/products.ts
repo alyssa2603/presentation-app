@@ -8,15 +8,15 @@ export interface Product {
 export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '1',
-    productName: 'Royal Umbrella Jasmine Rice 25kg',
+    productName: 'Jasmine Rice (25kg)',
     price: 1520.00,
-    image: 'https://down-ph.img.susercontent.com/file/44c327994a9c4a5ae9ce3cb7713fa160'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY_GtXKBNXJFVW_7zMfoYHyn9RSPq5uQCm4A&s'
   },
   {
     id: '2',
-    productName: 'Lucky Me! Instant Pancit Canton Original (30s)',
-    price: 390.00,
-    image: 'https://www.luckyme.com.ph/sites/default/files/2022-01/pancit-canton-original.jpg'
+    productName: 'Instant Pancit Canton (12 pcs)',
+    price: 240.00,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_NmAdRCPIveOtpQzvRSoAIM02-MLvlfyvhQ&s'
   },
   {
     id: '3',

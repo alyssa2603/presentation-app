@@ -69,7 +69,6 @@ const Checkout: React.FC = () => {
       setCurrentOrder({
         ...orderData,
         id: docRef.id,
-        itemsBought: cart.map(item => item.id), // Keep as IDs for local state
         items: cart
       });
 
@@ -84,7 +83,6 @@ const Checkout: React.FC = () => {
         customer: customerName,
         amountPaid: paymentAmount,
         total: total,
-        itemsBought: cart.map(item => item.id),
         isPrinted: false,
         createdAt: new Date(),
         items: cart
