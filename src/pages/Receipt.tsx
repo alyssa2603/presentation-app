@@ -31,6 +31,17 @@ const Receipt: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4">
+      <div className="text-center py-4">
+        <div className="w-16 h-16 rounded-full overflow-hidden mx-auto">
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <h2 className="text-xl font-bold text-gray-900">Warehouse ni Juan</h2>
+      </div>
+
       <div className="max-w-md mx-auto">
         {/* Receipt Container */}
         <div className="bg-white rounded-t-3xl shadow-2xl overflow-hidden">
@@ -39,14 +50,8 @@ const Receipt: React.FC = () => {
             <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-8 h-8" />
             </div>
-            <h1 className="text-2xl font-bold mb-1">Order Successful!</h1>
-            <p className="">Thank you for your purchase</p>
-          </div>
-
-          {/* Store Info */}
-          <div className="text-center py-4 border-b border-gray-200">
-            <h2 className="text-xl font-bold text-gray-900">Warehouse ni Juan</h2>
-            <p className="text-xs text-gray-500 mt-1">Order #{currentOrder.id?.slice(-8) || 'N/A'}</p>
+            <h1 className="text-2xl font-bold">Order Successful!</h1>
+            <p className="text-xs">Order #{currentOrder.id?.slice(-8) || 'N/A'}</p>
           </div>
 
           {/* Customer & Date Info */}

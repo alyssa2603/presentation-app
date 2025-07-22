@@ -48,11 +48,15 @@ const Products: React.FC = () => {
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="bg-primary/10 rounded-full p-2">
-              <User className="w-5 h-5 text-primary" />
+            <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mr-4">
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div>
-              <p className="text-sm text-gray-600">Welcome back,</p>
+              <p className="text-sm text-gray-600">Hello Customer,</p>
               <p className="font-semibold text-gray-900">{customerName}</p>
             </div>
           </div>
@@ -75,7 +79,8 @@ const Products: React.FC = () => {
       {/* Products Grid */}
       <main className="max-w-6xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Our Products</h1>
+          <h1 className="text-2xl sm:text-2xl font-bold text-gray-900">Welcome to Warehouse ni Juan!</h1>
+          <p>Explore our product catalog</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

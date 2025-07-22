@@ -20,11 +20,14 @@ const Welcome: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md transform transition-all duration-300 hover:scale-105">
         <div className="text-center mb-8">
-          <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-            <ShoppingBag className="w-10 h-10 text-primary" />
-          </div>
+            <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-primary/20">
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="w-full h-full object-cover"
+              />
+            </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Welcome to Warehouse ni Juan!</h1>
-          <p className="text-gray-600">Start your shopping experience</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
