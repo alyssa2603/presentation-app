@@ -1,3 +1,9 @@
+export interface Product {
+  id: string;
+  productName: string;
+  price: number;
+}
+
 export interface Item {
   id: string;
   itemName: string;
@@ -5,7 +11,10 @@ export interface Item {
   quantity: number;
 }
 
-export interface CartItem extends Item {
+export interface CartItem {
+  id: string;
+  productName: string;
+  price: number;
   cartQuantity: number;
 }
 

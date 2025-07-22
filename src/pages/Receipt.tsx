@@ -34,7 +34,7 @@ const Receipt: React.FC = () => {
             <PartyPopper className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Thank you!</h1>
-          <p className="text-gray-600">Your order has been processed successfully</p>
+          <p className="text-gray-600">Matagumpay na naproseso ang inyong order</p>
         </div>
 
         {/* Dotted separator */}
@@ -49,30 +49,30 @@ const Receipt: React.FC = () => {
 
           <div className="flex justify-between">
             <span className="text-gray-600 font-medium">Amount</span>
-            <span className="font-bold text-gray-900">${currentOrder.total.toFixed(2)}</span>
+            <span className="font-bold text-gray-900">₱{currentOrder.total.toFixed(2)}</span>
           </div>
 
           <div className="flex justify-between">
-            <span className="text-gray-600 font-medium">Amount Paid</span>
-            <span className="font-bold text-gray-900">${currentOrder.amountPaid.toFixed(2)}</span>
+            <span className="text-gray-600 font-medium">Naibayad</span>
+            <span className="font-bold text-gray-900">₱{currentOrder.amountPaid.toFixed(2)}</span>
           </div>
 
           <div className="flex justify-between">
-            <span className="text-gray-600 font-medium">DATE & TIME</span>
+            <span className="text-gray-600 font-medium">PETSA AT ORAS</span>
             <span className="font-bold text-gray-900">
               {formatDate(currentOrder.createdAt)}
             </span>
           </div>
 
           {/* Customer info with card-like design */}
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-4 text-white">
+          <div className="bg-gradient-to-r from-primary to-primary-dark rounded-lg p-4 text-white">
             <div className="flex items-center space-x-3">
               <div className="bg-white bg-opacity-20 rounded-full p-2">
                 <div className="w-8 h-6 bg-gradient-to-r from-red-400 to-yellow-400 rounded-sm"></div>
               </div>
               <div>
                 <p className="font-semibold text-lg">{currentOrder.customer}</p>
-                <p className="text-blue-100 text-sm">•••• {Math.floor(Math.random() * 9000) + 1000}</p>
+                <p className="text-primary-light/70 text-sm">•••• {Math.floor(Math.random() * 9000) + 1000}</p>
               </div>
             </div>
           </div>

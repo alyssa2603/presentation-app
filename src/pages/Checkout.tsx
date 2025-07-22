@@ -29,7 +29,7 @@ const Checkout: React.FC = () => {
     setPaymentError('');
 
     if (paymentAmount < total) {
-      setPaymentError(`Payment must be at least $${total.toFixed(2)}`);
+      setPaymentError(`Payment must be at least ₱${total.toFixed(2)}`);
       return;
     }
 
@@ -45,7 +45,7 @@ const Checkout: React.FC = () => {
         
         // Write the purchased item data to Firestore
         await setDoc(itemRef, {
-          itemName: cartItem.itemName,
+          itemName: cartItem.productName,
           price: cartItem.price,
           quantity: cartItem.cartQuantity // Use the quantity actually bought
         });
@@ -103,10 +103,10 @@ const Checkout: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
           <button
             onClick={() => navigate('/cart')}
-            className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors"
+            className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>Back to Cart</span>
+            <span>Balik sa Kart</span>
           </button>
           <h1 className="text-xl font-semibold text-gray-900">Checkout</h1>
           <div></div>
@@ -117,17 +117,17 @@ const Checkout: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Order Summary */}
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Buod ng Order</h2>
             
             <div className="space-y-4 mb-6">
               {cart.map((item) => (
                 <div key={item.id} className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0">
                   <div>
-                    <h3 className="font-medium text-gray-900">{item.itemName}</h3>
-                    <p className="text-sm text-gray-600">Qty: {item.cartQuantity} × ${item.price.toFixed(2)}</p>
+                    <h3 className="font-medium text-gray-900">{item.productName}</h3>
+                    <p className="text-sm text-gray-600">Qty: {item.cartQuantity} × ₱{item.price.toFixed(2)}</p>
                   </div>
                   <span className="font-semibold text-gray-900">
-                    ${(item.price * item.cartQuantity).toFixed(2)}
+                    ₱{(item.price * item.cartQuantity).toFixed(2)}
                   </span>
                 </div>
               ))}
@@ -136,7 +136,7 @@ const Checkout: React.FC = () => {
             <div className="border-t pt-4">
               <div className="flex justify-between items-center text-xl font-bold text-gray-900">
                 <span>Total:</span>
-                <span className="text-blue-600">${total.toFixed(2)}</span>
+                <span className="text-primary">₱{total.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -144,19 +144,19 @@ const Checkout: React.FC = () => {
           {/* Payment Form */}
           <div className="bg-white rounded-xl shadow-sm p-6">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="bg-blue-100 rounded-full p-3">
-                <CreditCard className="w-6 h-6 text-blue-600" />
+              <div className="bg-primary/10 rounded-full p-3">
+                <CreditCard className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Payment</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Bayad</h2>
             </div>
 
             <form onSubmit={handlePayment} className="space-y-6">
               <div>
                 <label htmlFor="payment" className="block text-sm font-medium text-gray-700 mb-2">
-                  Payment Amount
+                  Halaga ng Bayad
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">₱</span>
                   <input
                     type="number"
                     id="payment"
@@ -164,7 +164,7 @@ const Checkout: React.FC = () => {
                     min="0"
                     value={payment}
                     onChange={(e) => setPayment(e.target.value)}
-                    className={`w-full pl-8 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                    className={`w-full pl-8 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 ${
                       paymentError ? 'border-red-300' : 'border-gray-300'
                     }`}
                     placeholder="0.00"
@@ -173,7 +173,7 @@ const Checkout: React.FC = () => {
                 </div>
                 {paymentAmount > total && (
                   <p className="mt-2 text-sm text-green-600">
-                    Change: ${(paymentAmount - total).toFixed(2)}
+                    Sukli: ₱{(paymentAmount - total).toFixed(2)}
                   </p>
                 )}
                 {paymentError && (
@@ -181,24 +181,24 @@ const Checkout: React.FC = () => {
                 )}
               </div>
 
-              <div className="bg-blue-50 rounded-lg p-4">
-                <p className="text-sm text-blue-800">
-                  <strong>Minimum payment required:</strong> ${total.toFixed(2)}
+              <div className="bg-primary/5 rounded-lg p-4">
+                <p className="text-sm text-primary-dark">
+                  <strong>Minimum na bayad:</strong> ₱{total.toFixed(2)}
                 </p>
               </div>
 
               <button
                 type="submit"
                 disabled={isProcessing || paymentAmount < total}
-                className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-semibold text-lg flex items-center justify-center space-x-2"
+                className="w-full bg-primary text-white py-4 px-6 rounded-lg hover:bg-primary-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-semibold text-lg flex items-center justify-center space-x-2"
               >
                 {isProcessing ? (
                   <>
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    <span>Processing...</span>
+                    <span>Pinoproseso...</span>
                   </>
                 ) : (
-                  <span>Complete Payment</span>
+                  <span>Kumpletuhin ang Bayad</span>
                 )}
               </button>
             </form>

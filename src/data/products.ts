@@ -1,47 +1,44 @@
-import { Item } from '../types';
+export interface Product {
+  id: string;
+  productName: string;
+  price: number;
+}
 
-// Hardcoded product catalog - all products are defined here
-// These should match the items in your Firestore 'items' collection
-export const SAMPLE_PRODUCTS: Item[] = [
+// Hardcoded product catalog - simple products with name and price
+export const SAMPLE_PRODUCTS: Product[] = [
   {
     id: '1',
-    itemName: 'Premium Coffee Beans',
-    price: 24.99,
-    quantity: 50
+    productName: 'Premium Coffee Beans',
+    price: 1249.50
   },
   {
     id: '2',
-    itemName: 'Artisan Chocolate Bar',
-    price: 12.50,
-    quantity: 30
+    productName: 'Artisan Chocolate Bar',
+    price: 625.00
   },
   {
     id: '3',
-    itemName: 'Organic Honey',
-    price: 18.00,
-    quantity: 25
+    productName: 'Organic Honey',
+    price: 900.00
   },
   {
     id: '4',
-    itemName: 'Handcrafted Mug',
-    price: 32.00,
-    quantity: 15
+    productName: 'Handcrafted Mug',
+    price: 1600.00
   },
   {
     id: '5',
-    itemName: 'Gourmet Tea Set',
-    price: 45.99,
-    quantity: 12
+    productName: 'Gourmet Tea Set',
+    price: 2299.50
   },
   {
     id: '6',
-    itemName: 'Vanilla Extract',
-    price: 16.75,
-    quantity: 40
+    productName: 'Vanilla Extract',
+    price: 837.50
   }
 ];
 
 // Helper function to get product by ID
-export const getProductById = (id: string): Item | undefined => {
+export const getProductById = (id: string): Product | undefined => {
   return SAMPLE_PRODUCTS.find(product => product.id === id);
 };
