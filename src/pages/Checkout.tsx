@@ -15,11 +15,17 @@ const Checkout: React.FC = () => {
   const { customerName, setCurrentOrder } = useApp();
   const navigate = useNavigate();
 
+  const didRunRef = React.useRef(false);
+
   React.useEffect(() => {
-    if (!customerName || cart.length === 0) {
-      navigate('/');
+    if (!didRunRef.current) {
+      didRunRef.current = true;
+      if (!customerName || cart.length === 0) {
+        navigate('/');
+      }
     }
   }, [customerName, cart.length, navigate]);
+
 
   const total = getCartTotal();
   const paymentAmount = parseFloat(payment) || 0;
