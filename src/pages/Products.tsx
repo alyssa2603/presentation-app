@@ -52,7 +52,7 @@ const Products: React.FC = () => {
               <User className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-gray-600">Hello,</p>
+              <p className="text-sm text-gray-600">Welcome back,</p>
               <p className="font-semibold text-gray-900">{customerName}</p>
             </div>
           </div>
@@ -62,7 +62,7 @@ const Products: React.FC = () => {
             className="relative bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors duration-200 flex items-center space-x-2"
           >
             <ShoppingCart className="w-5 h-5" />
-            <span>Kart</span>
+            <span className="hidden sm:inline">Cart</span>
             {cartItemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
                 {cartItemCount}
@@ -75,34 +75,40 @@ const Products: React.FC = () => {
       {/* Products Grid */}
       <main className="max-w-6xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Products</h1>
-          <p className="text-gray-600">Explore our products in the warehouse</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Our Products</h1>
+          <p className="text-gray-600">Discover our premium selection</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {products.map((product) => (
             <div
               key={product.id}
               className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border"
             >
-              <div className="h-48 bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center">
-                <div className="text-6xl opacity-20">🛍️</div>
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={product.image} 
+                  alt={product.productName}
+                  className="w-full h-full object-cover"
+                />
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.productName}</h3>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{product.productName}</h3>
+                <p className="text-sm text-gray-600 mb-4">Premium quality product</p>
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-primary">
+                  <span className="text-xl sm:text-2xl font-bold text-primary">
                     ₱{product.price.toFixed(2)}
                   </span>
                   
                   <button
                     onClick={() => handleAddToCart(product)}
-                    className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors duration-200 flex items-center space-x-2"
+                    className="bg-primary text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors duration-200 flex items-center space-x-1 sm:space-x-2 text-sm sm:text-base"
                   >
                     <Plus className="w-4 h-4" />
-                    <span>Add to Cart</span>
+                    <span className="hidden sm:inline">Add to Cart</span>
+                    <span className="sm:hidden">Add</span>
                   </button>
                 </div>
               </div>

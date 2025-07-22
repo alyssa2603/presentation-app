@@ -23,14 +23,14 @@ const Welcome: React.FC = () => {
           <div className="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
             <ShoppingBag className="w-10 h-10 text-primary" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome to Warehouse ni Juan!</h1>
-          <p className="text-gray-600">Enter your name.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Welcome to Warehouse ni Juan!</h1>
+          <p className="text-gray-600">Start your shopping experience</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-              Ano ang inyong pangalan?
+              What's your name?
             </label>
             <input
               type="text"
@@ -38,7 +38,7 @@ const Welcome: React.FC = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
-              placeholder="Ilagay ang inyong pangalan"
+              placeholder="Enter your name"
               required
             />
           </div>
@@ -47,7 +47,7 @@ const Welcome: React.FC = () => {
             type="submit"
             className="w-full bg-primary text-white py-3 px-4 rounded-lg hover:bg-primary-dark focus:ring-4 focus:ring-primary/20 transition-all duration-200 flex items-center justify-center space-x-2 font-medium"
           >
-            <span>Proceed to shopping</span>
+            <span>Start Shopping</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </form>

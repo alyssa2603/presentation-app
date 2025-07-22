@@ -106,27 +106,28 @@ const Checkout: React.FC = () => {
             className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>Balik sa Kart</span>
+            <span className="hidden sm:inline">Back to Cart</span>
+            <span className="sm:hidden">Back</span>
           </button>
-          <h1 className="text-xl font-semibold text-gray-900">Checkout</h1>
+          <h1 className="text-lg sm:text-xl font-semibold text-gray-900">Checkout</h1>
           <div></div>
         </div>
       </header>
 
       <main className="max-w-4xl mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Order Summary */}
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Buod ng Order</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
             
             <div className="space-y-4 mb-6">
               {cart.map((item) => (
-                <div key={item.id} className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0">
+                <div key={item.id} className="flex justify-between items-start sm:items-center py-3 border-b border-gray-100 last:border-b-0">
                   <div>
                     <h3 className="font-medium text-gray-900">{item.productName}</h3>
                     <p className="text-sm text-gray-600">Qty: {item.cartQuantity} × ₱{item.price.toFixed(2)}</p>
                   </div>
-                  <span className="font-semibold text-gray-900">
+                  <span className="font-semibold text-gray-900 text-right">
                     ₱{(item.price * item.cartQuantity).toFixed(2)}
                   </span>
                 </div>
@@ -134,7 +135,7 @@ const Checkout: React.FC = () => {
             </div>
 
             <div className="border-t pt-4">
-              <div className="flex justify-between items-center text-xl font-bold text-gray-900">
+              <div className="flex justify-between items-center text-lg sm:text-xl font-bold text-gray-900">
                 <span>Total:</span>
                 <span className="text-primary">₱{total.toFixed(2)}</span>
               </div>
@@ -147,13 +148,13 @@ const Checkout: React.FC = () => {
               <div className="bg-primary/10 rounded-full p-3">
                 <CreditCard className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Bayad</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Payment</h2>
             </div>
 
             <form onSubmit={handlePayment} className="space-y-6">
               <div>
                 <label htmlFor="payment" className="block text-sm font-medium text-gray-700 mb-2">
-                  Halaga ng Bayad
+                  Payment Amount
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">₱</span>
@@ -183,14 +184,14 @@ const Checkout: React.FC = () => {
 
               <div className="bg-primary/5 rounded-lg p-4">
                 <p className="text-sm text-primary-dark">
-                  <strong>Total Due:</strong> ₱{total.toFixed(2)}
+                  <strong>Minimum payment:</strong> ₱{total.toFixed(2)}
                 </p>
               </div>
 
               <button
                 type="submit"
                 disabled={isProcessing || paymentAmount < total}
-                className="w-full bg-primary text-white py-4 px-6 rounded-lg hover:bg-primary-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-semibold text-lg flex items-center justify-center space-x-2"
+                className="w-full bg-primary text-white py-3 sm:py-4 px-6 rounded-lg hover:bg-primary-dark disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-semibold text-base sm:text-lg flex items-center justify-center space-x-2"
               >
                 {isProcessing ? (
                   <>

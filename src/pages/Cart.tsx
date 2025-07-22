@@ -28,7 +28,7 @@ const Cart: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4 py-4 flex items-center">
             <button
               onClick={() => navigate('/products')}
-              className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors"
+              className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
               <span>Back to Products</span>
@@ -42,7 +42,7 @@ const Cart: React.FC = () => {
               <ShoppingBag className="w-12 h-12 text-gray-400" />
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Your cart is empty</h2>
-            <p className="text-gray-600 mb-6">Add products to your cart</p>
+            <p className="text-gray-600 mb-6">Add some products to get started</p>
             <button
               onClick={() => navigate('/products')}
               className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-200"
@@ -64,9 +64,10 @@ const Cart: React.FC = () => {
             className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>Back to Products</span>
+            <span className="hidden sm:inline">Back to Products</span>
+            <span className="sm:hidden">Back</span>
           </button>
-          <h1 className="text-xl font-semibold text-gray-900">Your Cart</h1>
+          <h1 className="text-lg sm:text-xl font-semibold text-gray-900">Shopping Cart</h1>
           <div></div>
         </div>
       </header>
@@ -74,23 +75,24 @@ const Cart: React.FC = () => {
       <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-xl shadow-sm">
           <div className="p-6 border-b">
-            <h2 className="text-2xl font-bold text-gray-900">Your Items</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Your Items</h2>
+            <p className="text-gray-600">Review and modify your order</p>
           </div>
 
           <div className="divide-y">
             {cart.map((item) => (
-              <div key={item.id} className="p-6 flex items-center justify-between">
-                <div className="flex items-center space-x-4">
+              <div key={item.id} className="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
+                <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/20 rounded-lg flex items-center justify-center">
                     <span className="text-2xl opacity-60">🛍️</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">{item.productName}</h3>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">{item.productName}</h3>
                     <p className="text-gray-600">₱{item.price.toFixed(2)} each</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center justify-between sm:space-x-4">
                   <div className="flex items-center space-x-3 bg-gray-100 rounded-lg p-1">
                     <button
                       onClick={() => updateQuantity(item.id, item.cartQuantity - 1)}
@@ -108,7 +110,7 @@ const Cart: React.FC = () => {
                   </div>
 
                   <div className="text-right">
-                    <p className="text-lg font-semibold text-gray-900">
+                    <p className="text-base sm:text-lg font-semibold text-gray-900">
                       ₱{(item.price * item.cartQuantity).toFixed(2)}
                     </p>
                   </div>
@@ -126,15 +128,15 @@ const Cart: React.FC = () => {
 
           <div className="p-6 bg-gray-50 border-t">
             <div className="flex items-center justify-between mb-6">
-              <span className="text-xl font-semibold text-gray-900">Total:</span>
-              <span className="text-2xl font-bold text-primary">₱{getCartTotal().toFixed(2)}</span>
+              <span className="text-lg sm:text-xl font-semibold text-gray-900">Total:</span>
+              <span className="text-xl sm:text-2xl font-bold text-primary">₱{getCartTotal().toFixed(2)}</span>
             </div>
 
             <button
               onClick={handleCheckout}
-              className="w-full bg-primary text-white py-4 px-6 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-semibold text-lg"
+              className="w-full bg-primary text-white py-3 sm:py-4 px-6 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-semibold text-base sm:text-lg"
             >
-              Checkout
+              Proceed to Checkout
             </button>
           </div>
         </div>
