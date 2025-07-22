@@ -39,14 +39,13 @@ const Receipt: React.FC = () => {
             <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-8 h-8" />
             </div>
-            <h1 className="text-2xl font-bold mb-1">Order Confirmed!</h1>
-            <p className="text-primary-light/80">Thank you for your purchase</p>
+            <h1 className="text-2xl font-bold mb-1">Order Successful!</h1>
+            <p className="">Thank you for your purchase</p>
           </div>
 
           {/* Store Info */}
           <div className="text-center py-4 border-b border-gray-200">
             <h2 className="text-xl font-bold text-gray-900">Warehouse ni Juan</h2>
-            <p className="text-sm text-gray-600">Premium Quality Products</p>
             <p className="text-xs text-gray-500 mt-1">Order #{currentOrder.id?.slice(-8) || 'N/A'}</p>
           </div>
 
@@ -86,10 +85,13 @@ const Receipt: React.FC = () => {
 
           {/* Payment Summary */}
           <div className="p-6 space-y-3 border-b border-gray-200">
-            <div className="flex justify-between">
-              <span className="text-gray-600 font-medium">Subtotal:</span>
-              <span className="font-semibold text-gray-900">₱{currentOrder.total.toFixed(2)}</span>
+              <div>
+              <div className="flex justify-between items-center">
+                <span className="text-lg font-bold text-gray-900">Total:</span>
+                <span className="text-xl font-bold text-primary">₱{currentOrder.total.toFixed(2)}</span>
+              </div>
             </div>
+
             <div className="flex justify-between">
               <span className="text-gray-600 font-medium">Amount Paid:</span>
               <span className="font-semibold text-gray-900">₱{currentOrder.amountPaid.toFixed(2)}</span>
@@ -102,12 +104,7 @@ const Receipt: React.FC = () => {
                 </span>
               </div>
             )}
-            <div className="border-t pt-3 mt-3">
-              <div className="flex justify-between items-center">
-                <span className="text-lg font-bold text-gray-900">Total:</span>
-                <span className="text-xl font-bold text-primary">₱{currentOrder.total.toFixed(2)}</span>
-              </div>
-            </div>
+
           </div>
 
           {/* Print Status */}
@@ -117,33 +114,6 @@ const Receipt: React.FC = () => {
               <span className="font-medium">Processing Order</span>
             </div>
             <p className="text-sm text-yellow-600">Your order will be printed soon</p>
-          </div>
-
-          {/* Barcode */}
-          <div className="p-6 text-center border-b border-gray-200">
-            <div className="inline-block bg-black p-3 rounded">
-              <div className="flex space-x-px">
-                {Array.from({ length: 40 }, (_, i) => (
-                  <div
-                    key={i}
-                    className="bg-white"
-                    style={{
-                      width: Math.random() > 0.5 ? '2px' : '1px',
-                      height: '30px'
-                    }}
-                  ></div>
-                ))}
-              </div>
-              <p className="text-white text-xs mt-2 font-mono">
-                {Math.random().toString().substring(2, 15)}
-              </p>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="p-6 text-center text-gray-500">
-            <p className="text-xs mb-4">Thank you for shopping with us!</p>
-            <p className="text-xs">Keep this receipt for your records</p>
           </div>
         </div>
 

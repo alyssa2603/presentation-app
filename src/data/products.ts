@@ -14,88 +14,58 @@ export const SAMPLE_PRODUCTS: Product[] = [
   },
   {
     id: '2',
-    productName: 'Instant Pancit Canton (12 pcs)',
-    price: 240.00,
+    productName: 'Instant Pancit Canton',
+    price: 240.50,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_NmAdRCPIveOtpQzvRSoAIM02-MLvlfyvhQ&s'
   },
   {
     id: '3',
-    productName: 'Wilkins Pure Water Bottles 500ml (24s)',
-    price: 210.00,
-    image: 'https://cdn.shopify.com/s/files/1/0680/4150/7113/products/WilkinsPureDrinkingWater500ml_480x480.jpg'
+    productName: 'Wilkins Pure',
+    price: 210.25,
+    image: 'https://www.snrshopping.com/upload/product_details/5fb62444bb7ce_1605772356.jpg'
   },
   {
     id: '4',
-    productName: 'B-Meg Integra Layer Fresh Eggs Tray (30s)',
-    price: 220.00,
-    image: 'https://www.bmeg.com.ph/wp-content/uploads/2020/06/bmeg-layer-eggs.jpg'
+    productName: 'Sunsilk Shampoo 11+1',
+    price: 120.00,
+    image: 'https://nesabel.com/cdn/shop/products/SUNSILK_PINK_11_1_27d12085-f85e-4123-aa60-a73d9caf3316_1200x1200.jpg?v=1653495518'
   },
   {
     id: '5',
-    productName: 'Golden Fiesta Palm Oil 3L',
-    price: 495.00,
-    image: 'https://cdn.shopify.com/s/files/1/0604/6539/1604/products/goldenfiesta3l_1024x1024.jpg'
+    productName: 'Colgate 3  Value Pack',
+    price: 165.00,
+    image: 'https://i5.walmartimages.com/asr/8fd02c5d-a569-4b72-b5e2-8f5372de5fcd.de989b241a49b28e25078ce59f2a4bef.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF'
   },
   {
     id: '6',
-    productName: 'Surf Detergent Powder Kalamansi 5kg',
-    price: 480.00,
-    image: 'https://down-ph.img.susercontent.com/file/869a297a0c287fb97366d38dfbb8a2c3'
+    productName: 'Surf Detergent',
+    price: 480.50,
+    image: 'https://media.pickaroo.com/media/thumb/variant_photos/2021/4/8/YZEUAn2JsHcEzR6LJNsXsy_watermark_400.jpg'
   },
   {
     id: '7',
-    productName: 'Spam Luncheon Meat Classic 340g',
-    price: 175.00,
-    image: 'https://www.spam.com/cdn/shop/products/SPAMClassic12oz_Front_720x.jpg'
+    productName: 'Spam Luncheon Meat',
+    price: 6352.00,
+    image: 'https://images-cdn.ubuy.co.in/76XPSILK-pack-of-12-spam-25-less-sodium-canned.jpg'
   },
   {
     id: '8',
-    productName: '555 Sardines in Tomato Sauce 155g (100 cans)',
-    price: 2300.00,
-    image: 'https://cdn.shopify.com/s/files/1/0680/4150/7113/products/555Sardines155g_480x480.jpg'
+    productName: 'Piattos Supersized',
+    price: 73.25,
+    image: 'https://happyhour.ph/cdn/shop/products/piattos-supersized-sour-cream-onion-170g-417372.jpg?v=1708591370'
   },
   {
     id: '9',
-    productName: 'Sanicare Toilet Tissue 3-ply (12 rolls)',
-    price: 198.00,
-    image: 'https://cdn.shopify.com/s/files/1/0680/4150/7113/products/Sanicare3ply12rolls_480x480.jpg'
+    productName: 'Safeguard',
+    price: 183.20,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqXP2N5g3WBu9sElyd-COYyU0ylGDPnGqnm2S1K5-hGQp4vxIEIjXucv2jBjHn1u0wVi8&usqp=CAU'
   },
   {
     id: '10',
-    productName: 'Indoplas Disposable Face Mask (50 pcs)',
-    price: 105.00,
-    image: 'https://indoplasphil.com/wp-content/uploads/2020/09/Face-Mask.jpg'
+    productName: 'Tide Jumbo',
+    price: 137.75,
+    image: 'https://img.lazcdn.com/g/p/4f4fa5bb177c826cbe7212c62f3065ed.jpg_720x720q80.jpg_.webp'
   },
-  {
-    id: '11',
-    productName: 'Datu Puti Soy Sauce 1 Gallon',
-    price: 152.00,
-    image: 'https://cdn.greatdeals.com.ph/wp-content/uploads/2021/04/Datu-Puti-Soy-Sauce-1-Gallon.jpg'
-  },
-  {
-    id: '12',
-    productName: 'Coke Regular 1.5L (Case of 12)',
-    price: 678.00,
-    image: 'https://cdn.shopify.com/s/files/1/0551/9250/8437/products/coke-1.5l_480x480.jpg'
-  },
-  {
-    id: '13',
-    productName: 'Mighty White Bread Loaf 400g (10 pcs)',
-    price: 350.00,
-    image: 'https://www.mightywhite.com.my/images/mighty-white-sandwich-loaf.jpg'
-  },
-  {
-    id: '14',
-    productName: 'Bear Brand Fortified Powdered Milk Drink 1.2kg',
-    price: 450.00,
-    image: 'https://down-ph.img.susercontent.com/file/9aa73c7b7e12ef0433ed7c4d8d9b4f6a'
-  },
-  {
-    id: '15',
-    productName: 'Domex Ultra Thick Bleach 5L',
-    price: 289.00,
-    image: 'https://www.unileverfoodsolutions.com.ph/dam/global-ufs/mcos/SEA/calcmenu/recipes/PH-recipes/general/domex-ultra-thick-bleach-5l/main-header.jpg'
-  }
 ];
 
 // Helper function to get product by ID

@@ -76,19 +76,15 @@ const Cart: React.FC = () => {
         <div className="bg-white rounded-xl shadow-sm">
           <div className="p-6 border-b">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Your Items</h2>
-            <p className="text-gray-600">Review and modify your order</p>
           </div>
 
           <div className="divide-y">
             {cart.map((item) => (
               <div key={item.id} className="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/20 rounded-lg flex items-center justify-center">
-                    <span className="text-2xl opacity-60">🛍️</span>
-                  </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-semibold text-gray-900">{item.productName}</h3>
-                    <p className="text-gray-600">₱{item.price.toFixed(2)} each</p>
+                    <p className="text-gray-600">₱{item.price.toFixed(2)}</p>
                   </div>
                 </div>
 

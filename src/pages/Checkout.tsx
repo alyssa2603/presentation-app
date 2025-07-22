@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
@@ -10,25 +10,20 @@ const Checkout: React.FC = () => {
   const [payment, setPayment] = useState<string>('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentError, setPaymentError] = useState('');
-  
+  const [hasPaid, setHasPaid] = useState(false);
+
   const { cart, getCartTotal, clearCart } = useCart();
   const { customerName, setCurrentOrder } = useApp();
   const navigate = useNavigate();
 
-  const didRunRef = React.useRef(false);
-
-  React.useEffect(() => {
-    if (!didRunRef.current) {
-      didRunRef.current = true;
-      if (!customerName || cart.length === 0) {
-        navigate('/');
-      }
-    }
-  }, [customerName, cart.length, navigate]);
-
-
   const total = getCartTotal();
   const paymentAmount = parseFloat(payment) || 0;
+
+  useEffect(() => {
+    if (!hasPaid && (!customerName || cart.length === 0)) {
+      navigate('/');
+    }
+  }, [customerName, cart.length, hasPaid, navigate]);
 
   const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,24 +37,20 @@ const Checkout: React.FC = () => {
     setIsProcessing(true);
 
     try {
-      // Create individual item documents for each purchased item
       const itemRefs = [];
-      
+
       for (const cartItem of cart) {
-        // Create a new item document for each purchased item (not the product catalog)
-        const itemRef = doc(collection(db, 'items')); // Auto-generate ID for each purchased item
-        
-        // Write the purchased item data to Firestore
+        const itemRef = doc(collection(db, 'items'));
+
         await setDoc(itemRef, {
           itemName: cartItem.productName,
           price: cartItem.price,
-          quantity: cartItem.cartQuantity // Use the quantity actually bought
+          quantity: cartItem.cartQuantity
         });
-        
+
         itemRefs.push(itemRef);
       }
-      
-      // Now create the order with references to the items
+
       const orderData = {
         customer: customerName,
         amountPaid: paymentAmount,
@@ -70,20 +61,19 @@ const Checkout: React.FC = () => {
       };
 
       const docRef = await addDoc(collection(db, 'orders'), orderData);
-      
-      // Store order for receipt
+
       setCurrentOrder({
         ...orderData,
         id: docRef.id,
         items: cart
       });
 
-      // Clear cart and navigate to receipt
+      setHasPaid(true);
       clearCart();
       navigate('/receipt');
     } catch (error) {
       console.error('Error creating order:', error);
-      // For demo purposes, still proceed even if Firestore fails
+
       setCurrentOrder({
         id: `ORDER-${Date.now()}`,
         customer: customerName,
@@ -93,7 +83,8 @@ const Checkout: React.FC = () => {
         createdAt: new Date(),
         items: cart
       });
-      
+
+      setHasPaid(true);
       clearCart();
       navigate('/receipt');
     } finally {
@@ -123,7 +114,7 @@ const Checkout: React.FC = () => {
           {/* Order Summary */}
           <div className="bg-white rounded-xl shadow-sm p-6">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
-            
+
             <div className="space-y-4 mb-6">
               {cart.map((item) => (
                 <div key={item.id} className="flex justify-between items-start sm:items-center py-3 border-b border-gray-100 last:border-b-0">
